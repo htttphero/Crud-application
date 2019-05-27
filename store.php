@@ -1,19 +1,9 @@
 <?php
-// $_POST
+require 'database/QueryBuilder.php';
 
-$pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
-$sql = "INSERT INTO tasks (title, content) VALUES (:title, :content)";
-$statement = $pdo->prepare($sql);
-$statement->execute($_POST); //true || false
+$db = new QueryBuilder;
 
-//отправки письма
-
-//отправки СМС
-
-//уведомления админа
-
-//уведомления определенного пользователя
-
+$db->addTask($_POST);
 
 
 header("Location: /"); exit;
